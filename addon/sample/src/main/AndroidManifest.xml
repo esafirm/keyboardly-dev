@@ -6,7 +6,8 @@
         dist:title="@string/sample">
 
         <dist:delivery>
-            <dist:on-demand />
+<!--            <dist:on-demand />-->
+            <dist:install-time />
         </dist:delivery>
 
         <dist:fusing dist:include="true" />
