@@ -7,6 +7,7 @@ import app.keyboardly.addon.sample.action.register.RegisterActionView
 import app.keyboardly.addon.sample.action.shopping.ShoppingActionView
 import app.keyboardly.addon.sample.action.top.TopActionView
 import app.keyboardly.addon.sample.action.dashboard.DashboardActionView
+import app.keyboardly.addon.sample.action.flutter.FlutterActionView
 import app.keyboardly.addon.sample.di.sampleModule
 import app.keyboardly.lib.DefaultClass
 import app.keyboardly.lib.KeyboardActionDependency
@@ -90,6 +91,13 @@ class SampleDefaultClass(
                 icon = R.drawable.sample_ic_round_bedroom_parent_24,
             )
         )
+        menu.add(
+            NavigationMenuModel(
+                FLUTTER,
+                nameString = "Flutter",
+                icon = R.drawable.sample_ic_round_bedroom_parent_24,
+            )
+        )
     }
 
     override fun getSubmenus(): MutableList<NavigationMenuModel> {
@@ -101,7 +109,7 @@ class SampleDefaultClass(
     }
 
     override fun onClickMenu(data: NavigationMenuModel) {
-        Timber.d("data="+data.featureNameId+"|id="+data.id)
+        Timber.d("data=" + data.featureNameId + "|id=" + data.id)
         val view = when (data.id) {
             DISCOUNT -> registerView
             CAMPAIGN -> campaignActionView
@@ -110,13 +118,14 @@ class SampleDefaultClass(
             TOP_VIEW -> topActionView
             DASHBOARD -> dashboardActionView
             PROVINCE -> ProvinceListActionView(dependency)
+            FLUTTER -> FlutterActionView(dependency)
             else -> null
         }
 
         if (view != null) {
             val isTopView = data.topView
             Timber.d("topview=$isTopView / view=$view")
-            if (isTopView !=null && isTopView){
+            if (isTopView != null && isTopView) {
                 dependency.setTopActionView(view)
             } else {
                 dependency.setActionView(view)
@@ -138,5 +147,6 @@ class SampleDefaultClass(
         private const val TOP_VIEW = 5
         private const val DASHBOARD = 6
         private const val PROVINCE = 7
+        private const val FLUTTER = 8
     }
 }

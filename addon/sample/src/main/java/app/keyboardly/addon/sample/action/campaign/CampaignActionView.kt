@@ -4,6 +4,7 @@ import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ import app.keyboardly.lib.helper.InputPresenter
 import app.keyboardly.lib.helper.OnViewReady
 import app.keyboardly.addon.sample.R
 import app.keyboardly.addon.sample.databinding.SampleCampaignLayoutBinding
+import io.flutter.embedding.android.FlutterActivity
 import timber.log.Timber
 
 /**
@@ -22,7 +24,6 @@ import timber.log.Timber
 class CampaignActionView (
     dependency: KeyboardActionDependency
 ) : KeyboardActionView(dependency), InputPresenter {
-
 
     private var textWatcher: TextWatcher? = null
     private lateinit var campaignAdapter: CampaignListAdapter

@@ -10,6 +10,15 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        maven {
+            url "flutter_module/build/host/outputs/repo"
+            // This is relative to the location of the build.gradle file
+            // if using a relative path.
+        }
+        maven {
+            url 'https://storage.googleapis.com/download.flutter.io'
+        }
     }
 }
 rootProject.name = "Keyboardly Dev"

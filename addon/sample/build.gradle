@@ -20,6 +20,9 @@ android {
         release {
             minifyEnabled false
         }
+        profile {
+            initWith debug
+        }
     }
     packagingOptions {
         jniLibs {
@@ -75,6 +78,8 @@ dependencies {
 
     debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
     releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+
+    debugImplementation 'com.keyboardly.flutter_module:flutter_debug:1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
